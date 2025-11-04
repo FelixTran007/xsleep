@@ -1,10 +1,8 @@
 ---
 deployment:
   tasks:
-    # Deploy powerxsleep
-    - mkdir -p /home/powerxsl68a4/powerxsleep/
+    - rm -rf /home/powerxsl68a4/powerxsleep/*
     - /bin/cp -r ./powerxsleep/* /home/powerxsl68a4/powerxsleep/
 
-    # Deploy public_html
-    - mkdir -p /home/powerxsl68a4/public_html/
+    - rm -rf /home/powerxsl68a4/public_html/*
     - /bin/cp -r ./public_html/* /home/powerxsl68a4/public_html/
