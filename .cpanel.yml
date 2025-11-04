@@ -1,10 +1,10 @@
 ---
 deployment:
   tasks:
-    # Deploy testA sang /home/powerxsl68a4/powerxsleep
-    - export DEPLOYPATH_A=/home/powerxsl68a4/powerxsleep/
-    - /bin/rsync -av --delete --exclude='.git' --exclude='.cpanel.yml' ./powerxsleep/ $DEPLOYPATH_A
+    # Deploy powerxsleep
+    - mkdir -p /home/powerxsl68a4/powerxsleep/
+    - /bin/cp -r ./powerxsleep/* /home/powerxsl68a4/powerxsleep/
 
-    # Deploy testB sang /home/powerxsl68a4/public_html
-    - export DEPLOYPATH_B=/home/powerxsl68a4/public_html/
-    - /bin/rsync -av --delete --exclude='.git' --exclude='.cpanel.yml' ./public_html/ $DEPLOYPATH_B
+    # Deploy public_html
+    - mkdir -p /home/powerxsl68a4/public_html/
+    - /bin/cp -r ./public_html/* /home/powerxsl68a4/public_html/
