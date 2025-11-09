@@ -1,0 +1,23 @@
+<?php
+return [
+    'search_result' => 'Search result : ',
+    'products' => 'Products',
+    'no_products_found' => 'No products found',
+    'posts' => 'Posts',
+    'contact' => 'Contact',
+    'search' => 'Search',
+    'no_posts_found' => 'No posts found',
+    'other_products' => 'Other products',
+    'see_more' => 'see more',
+    'mattress_group' => 'Mattress',
+    'pillow_group' => 'Pillow',
+    'awesome_products' => 'Awesome Products',
+    'featured_collections' => 'Featured Collections',
+    'explore_the_awesome' => 'Explore The Awesome',
+    'various_products' => 'Various Products',
+    'pillow_bestseller' => 'Pillow Best Seller',
+    'mattress_bestseller' => 'Mattress Best Seller',
+    'category_all_product' => 'Category : All Products',
+    'category_pillow' => 'Category : Pillow',
+    'category_mattress' => 'Category : Mattress',
+];

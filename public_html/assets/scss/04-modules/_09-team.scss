@@ -1,0 +1,146 @@
+/*----------------------------------------*/
+/*  Team CSS
+/*----------------------------------------*/
+
+.team {
+    text-align: center;
+    background-color: $light;
+    &:hover {
+        & .team {
+            &-social {
+                visibility: visible;
+
+                transform: translateX(-50%) translateY(-50%);
+
+                opacity: 1;
+            }
+        }
+    }
+    &-thumb {
+        position: relative;
+        img {
+          width: 100%;
+        }
+    }
+    &-social {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        visibility: hidden;
+        padding: 10px 15px;
+        transition: $transition-base;
+        transform: translateX(-50%);
+        opacity: 0;
+        border-radius: 4px;
+        background-color: $white;
+        gap: 6px;
+        width: 100%;
+        & a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & .icon {
+              color: $white;
+              border: 1px solid #e5e5e5;
+              border-radius: 50%;
+              font-size: 14px;
+              height: 30px;
+              line-height: 30px;
+              width: 30px;
+              transition: $transition-base;
+              &.facebook-icon {
+                background-color: #3b5998;
+                border: 1px solid #3b5998;
+              }
+              &.twitter-icon {
+                background-color: #55acee;
+                border: 1px solid #55acee;
+              }
+              &.instagram-icon {
+                background-color: #c32aa3;
+                border: 1px solid #c32aa3;
+              }
+            }
+            & i {
+                font-size: 16px;
+            }
+            &:hover {
+                & .icon {
+                  &.facebook-icon {
+                    background-color: transparent;
+                    color: #3b5998;
+                  }
+                  &.twitter-icon {
+                    background-color: transparent;
+                    color: #55acee;
+                  }
+                  &.instagram-icon {
+                    background-color: transparent;
+                    color: #c32aa3;
+                  }
+                }
+            }
+        }
+    }
+    &-content {
+        padding: 20px;
+    }
+    &-name {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.5;
+
+        margin-bottom: 5px;
+    }
+    &-title {
+        font-size: 15px;
+        line-height: 1.5;
+
+        display: block;
+
+        margin: 0;
+    }
+}
+
+.social-items {
+  a {
+    background-color: $white;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 16px;
+    height: 36px;
+    line-height: 37px;
+    margin-right: 5px;
+    text-align: center;
+    width: 36px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.facebook-item {
+      background-color: #3b5998;
+      color: $white;
+    }
+    &.twitter-item {
+      background-color: #1da1f2;
+      color: $white;
+    }
+    &.youtube-item {
+      background-color: #cd201f;
+      color: $white;
+    }
+    &.linkedin-item {
+      background-color: #0077b5;
+      color: $white;
+    }
+    &.rss-item {
+      background-color: #f26522;
+      color: $white;
+    }
+    &.dribbble-item {
+      background-color: #ea4c89;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<?php
+return [
+    'search_result' => 'Kết quả tìm kiếm : ',
+    'products' => 'Sản phẩm',
+    'no_products_found' => 'Không tìm thấy sản phẩm',
+    'posts' => 'Bài viết',
+    'contact' => 'Liên hệ',
+    'search' => 'Tìm kiếm',
+    'no_posts_found' => 'Không tìm thấy bài viết',
+    'other_products' => 'Sản phẩm khác',
+    'see_more' => 'xem thêm',
+    'mattress_group' => 'Nệm',
+    'pillow_group' => 'Gối',
+    'awesome_products' => 'Sản phẩm tuyệt vời',
+    'featured_collections' => 'Bộ sưu tập nổi bật',
+    'explore_the_awesome' => 'Khám phá điều tuyệt vời',
+    'various_products' => 'Nhiều sản phẩm đa dạng',
+    'pillow_bestseller' => 'Gối bán chạy',
+    'mattress_bestseller' => 'Nệm bán chạy',
+    'category_all_product' => 'Danh mục : Tất cả sản phẩm',
+    'category_pillow' => 'Danh mục : Gối',
+    'category_mattress' => 'Danh mục : Nệm',
+];

@@ -1,0 +1,5 @@
+[24-Aug-2025 16:55:08 UTC] PHP Warning:  require(/home/powerxsl68a4/public_html/../sleepy.prj/app/Config/Paths.php): Failed to open stream: No such file or directory in /home/powerxsl68a4/public_html/index.php on line 57
+[24-Aug-2025 16:55:08 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/powerxsl68a4/public_html/../sleepy.prj/app/Config/Paths.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/powerxsl68a4/public_html/index.php:57
+Stack trace:
+#0 {main}
+  thrown in /home/powerxsl68a4/public_html/index.php on line 57
