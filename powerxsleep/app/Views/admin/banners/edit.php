@@ -14,6 +14,48 @@
         </div>
 
         <div class="mb-3">
+            <label for="color_text" class="form-label">Color text</label>
+            <input type="text" class="form-control" name="color_text" id="color_text"
+                   value="<?= $banner['color_text'] ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="big_text" class="form-label">Big text</label>
+            <input type="text" class="form-control" name="big_text" id="big_text"
+                   value="<?= $banner['big_text'] ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description_text" class="form-label">Description text</label>
+            <input type="text" class="form-control" name="description_text" id="description_text"
+                   value="<?= htmlspecialchars($banner['description_text']) ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="xem_them_text" class="form-label">View more text</label>
+            <input type="text" class="form-control" name="xem_them_text" id="xem_them_text"
+                   value="<?= $banner['xem_them_text'] ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="xem_them_link" class="form-label">View more link</label>
+            <input type="text" class="form-control" name="xem_them_link" id="xem_them_link"
+                   value="<?= $banner['xem_them_link'] ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="video_text" class="form-label">Video text</label>
+            <input type="text" class="form-control" name="video_text" id="video_text"
+                   value="<?= $banner['video_text'] ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="video_link" class="form-label">Video link</label>
+            <input type="text" class="form-control" name="video_link" id="video_link"
+                   value="<?= $banner['video_link'] ?>" required>
+        </div>
+
+        <div class="mb-3">
             <label for="sort_order" class="form-label">Thứ tự</label>
             <input type="number" class="form-control" name="sort_order" id="sort_order"
                    value="<?= old('sort_order', $banner['sort_order']) ?>" required>
