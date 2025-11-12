@@ -58,7 +58,7 @@
         <div class="mb-3">
             <label class="form-label">Ngôn ngữ</label>
             <select name="language" class="form-control">
-                <option value="vi" <?= (isset($product) && $product['language'] == "vn") ? 'selected' : '' ?>>Tiếng Việt</option>
+                <option value="vn" <?= (isset($product) && $product['language'] == "vn") ? 'selected' : '' ?>>Tiếng Việt</option>
                 <option value="en" <?= (isset($product) && $product['language'] == "en") ? 'selected' : '' ?>>Tiếng Anh</option>
             </select>
         </div>

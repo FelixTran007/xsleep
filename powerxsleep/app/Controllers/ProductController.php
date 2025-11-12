@@ -87,7 +87,7 @@ class ProductController extends Controller
             'price'       => $this->request->getPost('price'),
             'sale_price'       => $this->request->getPost('sale_price'),
             'subthumbnails'        => json_encode(array_filter($subthumbnails)), // bỏ trống thì loại
-            'slug'        => url_title($this->request->getPost('name'), '-', true),
+            'slug'        => $this->create_optimized_vietnamese_slug($this->request->getPost('name')),
             'description' => $this->request->getPost('description'),
             'short_description'     => $this->request->getPost('short_description'),
             'product_content'     => $product_content,
@@ -96,7 +96,7 @@ class ProductController extends Controller
             'stock_quantity'       => $this->request->getPost('stock_quantity'),
         ]);
 
-        return redirect()->to('/products')->with('success', 'Thêm sản phẩm thành công!');
+        return redirect()->to('/product')->with('success', 'Thêm sản phẩm thành công!');
     }
 
     // sửa sản phẩm
@@ -146,7 +146,7 @@ class ProductController extends Controller
             'sku'       => $this->request->getPost('sku'),
             'price'       => $this->request->getPost('price'),
             'sale_price'       => $this->request->getPost('sale_price'),
-            'slug'        => url_title($this->request->getPost('name'), '-', true),
+            'slug'        => $this->create_optimized_vietnamese_slug($this->request->getPost('name')),
             'type'        => $this->request->getPost('type'),
             'language'        => $this->request->getPost('language'),
             'is_bestseller'        => $is_bestseller,
@@ -159,13 +159,46 @@ class ProductController extends Controller
             'stock_quantity'       => $this->request->getPost('stock_quantity'),
         ]);
 
-        return redirect()->to('/products')->with('success', 'Cập nhật sản phẩm thành công!');
+        return redirect()->to('/product')->with('success', 'Cập nhật sản phẩm thành công!');
     }
 
     // xóa sản phẩm
     public function delete($id)
     {
         $this->productModel->delete($id);
-        return redirect()->to('/products')->with('success', 'Xóa sản phẩm thành công!');
+        return redirect()->to('/product')->with('success', 'Xóa sản phẩm thành công!');
+    }
+
+
+    // Thêm một hàm tối ưu hơn, sử dụng `URL Helper` có sẵn của CI4
+    // và một bảng ánh xạ dấu
+    public function create_optimized_vietnamese_slug(string $text): string  {
+        // 1. Chuyển về chữ thường
+        $text = mb_strtolower($text, 'UTF-8');
+
+        // 2. Bảng ánh xạ các ký tự tiếng Việt có dấu sang không dấu
+        $map = array(
+            '/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/' => 'a',
+            '/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/'               => 'e',
+            '/ì|í|ị|ỉ|ĩ/'                           => 'i',
+            '/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/'   => 'o',
+            '/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/'               => 'u',
+            '/ỳ|ý|ỵ|ỷ|ỹ/'                           => 'y',
+            '/đ/'                                   => 'd',
+            '/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/' => 'A', // Dù đã lowercase nhưng để phòng hờ
+            '/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/'               => 'E',
+            '/Ì|Í|Ị|Ỉ|Ĩ/'                           => 'I',
+            '/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/'   => 'O',
+            '/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/'               => 'U',
+            '/Ỳ|Ý|Ỵ|Ỷ|Ỹ/'                           => 'Y',
+            '/Đ/'                                   => 'D',
+            '/[^a-z0-9\s-]/u'                      => '',   // Loại bỏ các ký tự đặc biệt
+            '/[\s-]+/'                              => '-',  // Thay thế khoảng trắng/dấu gạch ngang thành một dấu gạch ngang duy nhất
+        );
+
+        $text = preg_replace(array_keys($map), array_values($map), $text);
+        $text = trim($text, '-'); // Loại bỏ gạch ngang ở đầu và cuối
+
+        return $text;
     }
 }
