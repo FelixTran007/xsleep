@@ -115,7 +115,7 @@ class BannerController extends BaseController
         return redirect()->to('/banners')->with('success', 'Cập nhật banner thành công');
     }
 
-    // Xóa
+    // test content
     public function delete($id)
     {
         $this->bannerModel->delete($id);
