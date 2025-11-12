@@ -16,13 +16,6 @@ class BannerModel extends Model
 
     protected $allowedFields = [
         'image_path',
-        'color_text',
-        'big_text',
-        'description_text',
-        'xem_them_text',
-        'xem_them_link',
-        'video_text',
-        'video_link',
         'sort_order',
         'status',
         'created_at',

@@ -64,14 +64,7 @@ class BannerController extends BaseController
         }
 
         $this->bannerModel->save([
-            'image_path' => $this->request->getPost('image_path'),
-            'color_text' => $this->request->getPost('color_text'),
-            'big_text' => $this->request->getPost('big_text'),
-            'description_text' => $this->request->getPost('description_text'),
-            'xem_them_text' => $this->request->getPost('xem_them_text'),
-            'xem_them_link' => $this->request->getPost('xem_them_link'),
-            'video_text' => $this->request->getPost('video_text'),
-            'video_link' => $this->request->getPost('video_link'),
+            'image_path' => $this->request->getPost('image_path'),            
             'sort_order' => $this->request->getPost('sort_order'),
             'status'     => $this->request->getPost('status'),
         ]);
@@ -115,13 +108,6 @@ class BannerController extends BaseController
 
         $this->bannerModel->update($id, [
             'image_path' => $this->request->getPost('image_path'),
-            'color_text' => $this->request->getPost('color_text'),
-            'big_text' => $this->request->getPost('big_text'),
-            'description_text' => $this->request->getPost('description_text'),
-            'xem_them_text' => $this->request->getPost('xem_them_text'),
-            'xem_them_link' => $this->request->getPost('xem_them_link'),
-            'video_text' => $this->request->getPost('video_text'),
-            'video_link' => $this->request->getPost('video_link'),
             'sort_order' => $this->request->getPost('sort_order'),
             'status'     => $this->request->getPost('status'),
         ]);
