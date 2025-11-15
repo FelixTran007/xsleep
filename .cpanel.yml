@@ -28,14 +28,16 @@ deployment:
     # Sao chép code từ thư mục Git cục bộ (ví dụ: thư mục public_html)
     - /bin/cp -r ./public_html/* $DEPLOYPATH/public_html/
 
-    # 5. DI CHUYỂN DỮ LIỆU VỀ (Nếu tồn tại)
-    # Di chuyển 'writable' trở lại (chúng ta phải kiểm tra trong thư mục /data/)
+    # 5. DI CHUYỂN DỮ LIỆU VỀ (Sử dụng Copy và Remove)
+    # Sao chép 'writable' trở lại và xóa bản gốc trong /data/
     - |
       if [ -d $DEPLOYPATH/data/writable ]; then
-        /bin/mv $DEPLOYPATH/data/writable $DEPLOYPATH/powerxsleep/
+        /bin/cp -r $DEPLOYPATH/data/writable $DEPLOYPATH/powerxsleep/
+        /bin/rm -rf $DEPLOYPATH/data/writable
       fi
-    # Di chuyển 'uploads' trở lại
+    # Sao chép 'uploads' trở lại và xóa bản gốc trong /data/
     - |
       if [ -d $DEPLOYPATH/data/uploads ]; then
-        /bin/mv $DEPLOYPATH/data/uploads $DEPLOYPATH/public_html/
+        /bin/cp -r $DEPLOYPATH/data/uploads $DEPLOYPATH/public_html/
+        /bin/rm -rf $DEPLOYPATH/data/uploads
       fi
