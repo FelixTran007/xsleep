@@ -1,8 +1,11 @@
 ---
 deployment:
   tasks:
+    - /bin/mv /home/powerxsl68a4/powerxsleep/writable /home/powerxsl68a4/data/
+    - /bin/mv /home/powerxsl68a4/public_html/uploads /home/powerxsl68a4/data/
     - rm -rf /home/powerxsl68a4/powerxsleep/*
-    - /bin/cp -r ./powerxsleep/* /home/powerxsl68a4/powerxsleep/
-
     - rm -rf /home/powerxsl68a4/public_html/*
+    - /bin/cp -r ./powerxsleep/* /home/powerxsl68a4/powerxsleep/
     - /bin/cp -r ./public_html/* /home/powerxsl68a4/public_html/
+    - /bin/mv /home/powerxsl68a4/data/writable /home/powerxsl68a4/powerxsleep/
+    - /bin/mv /home/powerxsl68a4/data/uploads /home/powerxsl68a4/public_html/
