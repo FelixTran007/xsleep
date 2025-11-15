@@ -39,7 +39,7 @@ $routes->get('product/quickview', 'Home::quickview');
 
 
 
-// Backend Routes for admin
+// Backend Routes for admin test agin
 $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::loginPost');
 $routes->get('/logout', 'Auth::logout');
