@@ -1,11 +1,41 @@
 ---
 deployment:
   tasks:
-    - /bin/mv /home/powerxsl68a4/powerxsleep/writable /home/powerxsl68a4/data/
-    - /bin/mv /home/powerxsl68a4/public_html/uploads /home/powerxsl68a4/data/
-    - rm -rf /home/powerxsl68a4/powerxsleep/*
-    - rm -rf /home/powerxsl68a4/public_html/*
-    - /bin/cp -r ./powerxsleep/* /home/powerxsl68a4/powerxsleep/
-    - /bin/cp -r ./public_html/* /home/powerxsl68a4/public_html/
-    - /bin/mv /home/powerxsl68a4/data/writable /home/powerxsl68a4/powerxsleep/
-    - /bin/mv /home/powerxsl68a4/data/uploads /home/powerxsl68a4/public_html/
+    # 1. Định nghĩa đường dẫn gốc để code gọn hơn
+    - export DEPLOYPATH=/home/powerxsl68a4/
+
+    # 2. DI CHUYỂN DỮ LIỆU ĐI (Nếu tồn tại)
+    # Di chuyển 'writable'
+    - |
+      if [ -d $DEPLOYPATH/powerxsleep/writable ]; then
+        /bin/mv $DEPLOYPATH/powerxsleep/writable $DEPLOYPATH/data/
+      fi
+    # Di chuyển 'uploads'
+    - |
+      if [ -d $DEPLOYPATH/public_html/uploads ]; then
+        /bin/mv $DEPLOYPATH/public_html/uploads $DEPLOYPATH/data/
+      fi
+
+    # 3. XÓA SẠCH THƯ MỤC CODE CŨ
+    # Xóa sạch nội dung thư mục powerxsleep (không xóa thư mục chính)
+    - rm -rf $DEPLOYPATH/powerxsleep/*
+    # Xóa sạch nội dung thư mục public_html (không xóa thư mục chính)
+    - rm -rf $DEPLOYPATH/public_html/*
+
+    # 4. SAO CHÉP CODE MỚI
+    # Sao chép code từ thư mục Git cục bộ (ví dụ: thư mục powerxsleep)
+    - /bin/cp -r ./powerxsleep/* $DEPLOYPATH/powerxsleep/
+    # Sao chép code từ thư mục Git cục bộ (ví dụ: thư mục public_html)
+    - /bin/cp -r ./public_html/* $DEPLOYPATH/public_html/
+
+    # 5. DI CHUYỂN DỮ LIỆU VỀ (Nếu tồn tại)
+    # Di chuyển 'writable' trở lại (chúng ta phải kiểm tra trong thư mục /data/)
+    - |
+      if [ -d $DEPLOYPATH/data/writable ]; then
+        /bin/mv $DEPLOYPATH/data/writable $DEPLOYPATH/powerxsleep/
+      fi
+    # Di chuyển 'uploads' trở lại
+    - |
+      if [ -d $DEPLOYPATH/data/uploads ]; then
+        /bin/mv $DEPLOYPATH/data/uploads $DEPLOYPATH/public_html/
+      fi
