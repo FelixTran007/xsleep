@@ -17,4 +17,6 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 /public_html/uploads
+/public_html/.htaccess
 /powerxsleep/writable
+/powerxsleep/.env
